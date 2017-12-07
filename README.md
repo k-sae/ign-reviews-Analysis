@@ -1,6 +1,6 @@
 # IGN-Reviews Analysis
 
-the aim is to know how IGN reviews impact the sales of video games
+the aim is to know how IGN reviews impact the sales process of video games
 in the last 20 years
 
 ## what is [IGN](http://me.ign.com/en/)
