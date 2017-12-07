@@ -43,8 +43,8 @@ score   sales
 10      20m
 9       15m
 ```
- - ``in this example 10 had an average of 20 mil sold copy  `` 
- - ``then the score had an high impact on the sales proccess``
+ - ``in this example: `10` had an average of 20 mil sold copy  `` 
+ - ``this means that the score had an high impact on the sales proccess``
  
 - we will use the output file resulted from this first process as an input dataset for the next step
 
