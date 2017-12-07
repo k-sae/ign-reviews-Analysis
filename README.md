@@ -46,7 +46,7 @@ score   sales
  - ``in this example 10 had an average of 20 mil sold copy  `` 
  ``then the score had an high impact on the sales proccess``
  
-- we will use the output file resulted from this first process as our dataset for the next step
+- we will use the output file resulted from this first process as an input dataset for the next step
 
 - this time i will use the mapper and reducer from the ``analyzer`` package
 ```
