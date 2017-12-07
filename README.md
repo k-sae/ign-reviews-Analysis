@@ -28,7 +28,7 @@ title, Platform, Global Sales
 
 ### steps
 
-1- to merge the two dataset in order to fetch the sales of each game title and it's score 
+1- Merge the two dataset to fetch the `sales` of each game title and it's `score` 
 - use this hadoop commands to start the process on the mapper and reducer in _`merger`_ package
 
 ```
@@ -43,7 +43,7 @@ score   sales
 10      20m
 9       15m
 ```
- - ``in this example: `10` had an average of 20 mil sold copy  `` 
+ - ``in this example: `10` had an average of 20 million sold copy  `` 
  - ``this means that the score had an high impact on the sales proccess``
  
 - we will use the output file resulted from this first process as an input dataset for the next step
