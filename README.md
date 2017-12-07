@@ -27,14 +27,14 @@ title, Platform, Global Sales
 
 ### steps
 
-1- we need to merge the two dataset in order to fetch the sales of each game title and it's score 
-2- use this hadoop commands to start the process on the mapper and reducer in _`merger`_ package
+1- to merge the two dataset in order to fetch the sales of each game title and it's score 
+- use this hadoop commands to start the process on the mapper and reducer in _`merger`_ package
 
 ```
 #commands will be added on 12/12/2017
 ```
 
-4- next step is to get the average sold game copies for each score 
+2- next step is to get the average sold game copies for each score 
 
 ex output:
 ```
@@ -42,12 +42,12 @@ score   sales
 10      20m
 9       15m
 ```
- ``in this example 10 had an average of 20 mil sold copy  `` 
+ - ``in this example 10 had an average of 20 mil sold copy  `` 
  ``then the score had an high impact on the sales proccess``
  
--we will use the output file resulted from this first process as our dataset for the next step
+- we will use the output file resulted from this first process as our dataset for the next step
 
--this time i will use the mapper and reducer from the ``analyzer`` package
+- this time i will use the mapper and reducer from the ``analyzer`` package
 ```
 #commands will be added on 12/12/2017
 ```
@@ -65,6 +65,6 @@ this section will Contain the observation
 
 ## License
 
-This project is licensed under the Apache 2.0 License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENSE) file for details
 
 
