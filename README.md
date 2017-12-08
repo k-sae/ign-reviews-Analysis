@@ -36,7 +36,14 @@ title, Platform, Global Sales
 - use this hadoop commands to start the process on the mapper and reducer in _`merger`_ package
 
 ```
-#commands will be added on 12/12/2017
+hadoop dfs -mkdir -p /user/$USER/ign-reviews
+
+# project directory as the working directory
+hadoop dfs -put datasets/merger/ /user/$USER/ign-reviews
+
+hadoop jar $HADOOP_STREAMING_HOME/hadoop-streaming-2.8.1.jar -input /user/$USER/ign-reviews/merger -output /user/$USER/ign-reviews/merger/out -mapper /media/kareem/F098F2D598F298F4/Miscellaneous/projects/Git/python/ign-reviews-map-reduce/main/merger/mapper.py   -reducer /media/kareem/F098F2D598F298F4/Miscellaneous/projects/Git/python/ign-reviews-map-reduce/main/merger/reducer.py
+
+
 ```
 
 2- next step is to get the average sold game copies for each score 

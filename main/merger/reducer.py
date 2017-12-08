@@ -36,19 +36,28 @@ def reduce():
         cols = _format_and_split(line)
         if _title_changed(last_title, cols[0]):
             # make sure of no missing data
-            if title_score != 0 and title_sales != 0:
+            if title_score != 0 and title_sales != 0 and count != 0:
                 # get average of score
-                _emit([last_title, title_score/count, title_sales])
+                _emit([last_title, title_score / count, title_sales])
             title_sales = 0
             title_score = 0
             count = 0
 
         if is_review(cols):
-            title_score += float(cols[1])
-            count += 1
+            try:
+                title_score += float(cols[1])
+                count += 1
+            except ValueError:
+                continue
         else:
-            title_sales += float(cols[2])
+            try:
+                title_sales += float(cols[2])
+            except ValueError:
+                continue
         last_title = cols[0]
+    if title_score != 0 and title_sales != 0:
+        # get average of score
+        _emit([last_title, title_score / count, title_sales])
 
 
 if __name__ == '__main__':
