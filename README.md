@@ -27,7 +27,7 @@ title, Platform, Global Sales
 ### Testing mapper and reducer
 - `merger`
 ```
-    cat datasets/dataset_min.csv | python3 main/merger/mapper.py | sort -k1,1 | python3 main/merger/reducer.py 
+    #command will be added later
 ```
 
 ### steps
@@ -48,7 +48,7 @@ score   sales
 9       15m
 ```
  - ``in this example 10 had an average of 20 mil sold copy  `` 
- ``then the score had an high impact on the sales proccess``
+ - ``then the score had an high impact on the sales proccess``
  
 - we will use the output file resulted from this first process as our dataset for the next step
 
