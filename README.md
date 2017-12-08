@@ -1,13 +1,13 @@
 # IGN-Reviews Analysis
 
-The aim is to know how IGN reviews impact the sales process of video games
+the aim is to know how IGN reviews impact the sales of video games
 in the last 20 years
 
 ## what is [IGN](http://me.ign.com/en/)
 
 [![N|Solid](https://superrepo.org/static/images/icons/original/xplugin.video.ign_com.png.pagespeed.ic.mp10cLVn3C.png)](http://me.ign.com/en/)
 
-IGN is one of the largest video game reviewing sites, where many video gamers consider visiting it before purchasing any game
+IGN is on of the largest video game reviewing site, where many video gamers consider visiting it before purchasing any game
 
 ### Datasets 
 1- [20 Years Of Games Analysis](https://www.kaggle.com/ash316/20-years-of-games-analysis)
@@ -24,11 +24,15 @@ columns of interest:
 ```
 title, Platform, Global Sales
 ```
-
+### Testing mapper and reducer
+- `merger`
+```
+    cat datasets/dataset_min.csv | python3 main/merger/mapper.py | sort -k1,1 | python3 main/merger/reducer.py 
+```
 
 ### steps
 
-1- Merge the two dataset to fetch the `sales` of each game title and it's `score` 
+1- to merge the two dataset in order to fetch the sales of each game title and it's score 
 - use this hadoop commands to start the process on the mapper and reducer in _`merger`_ package
 
 ```
@@ -43,10 +47,10 @@ score   sales
 10      20m
 9       15m
 ```
- - ``in this example: `10` had an average of 20 million sold copy  `` 
- - ``this means that the score had an high impact on the sales proccess``
+ - ``in this example 10 had an average of 20 mil sold copy  `` 
+ ``then the score had an high impact on the sales proccess``
  
-- we will use the output file resulted from this first process as an input dataset for the next step
+- we will use the output file resulted from this first process as our dataset for the next step
 
 - this time i will use the mapper and reducer from the ``analyzer`` package
 ```
