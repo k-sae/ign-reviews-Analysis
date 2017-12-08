@@ -41,7 +41,8 @@ hadoop dfs -mkdir -p /user/$USER/ign-reviews
 # project directory as the working directory
 hadoop dfs -put datasets/merger/ /user/$USER/ign-reviews
 
-hadoop jar $HADOOP_STREAMING_HOME/hadoop-streaming-2.8.1.jar -input /user/$USER/ign-reviews/merger -output /user/$USER/ign-reviews/merger/out -mapper /media/kareem/F098F2D598F298F4/Miscellaneous/projects/Git/python/ign-reviews-map-reduce/main/merger/mapper.py   -reducer /media/kareem/F098F2D598F298F4/Miscellaneous/projects/Git/python/ign-reviews-map-reduce/main/merger/reducer.py
+#use always an absolute path for mapper and reducer 
+hadoop jar $HADOOP_STREAMING_HOME/hadoop-streaming-2.8.1.jar -input /user/$USER/ign-reviews/merger -output /user/$USER/ign-reviews/merger/out -mapper $PROJECT_FOLDER/main/merger/mapper.py   -reducer $PROJECT_FOLDER/main/merger/reducer.py
 
 
 ```
