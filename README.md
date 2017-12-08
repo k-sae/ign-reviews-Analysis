@@ -24,7 +24,11 @@ columns of interest:
 ```
 title, Platform, Global Sales
 ```
-
+### Testing mapper and reducer
+- `merger`
+```
+    cat datasets/dataset_min.csv | python3 main/merger/mapper.py | sort -k1,1 | python3 main/merger/reducer.py 
+```
 
 ### steps
 
