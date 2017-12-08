@@ -1,7 +1,7 @@
 import sys
 
 
-def _emit(elements, separator='\t'):
+def _emit(elements, separator=','):
     # convert all list items to string
     # by appling function str to all list items using function map
     elements_as_string = map(str, elements)
@@ -11,7 +11,7 @@ def _emit(elements, separator='\t'):
 
 
 def split(line: str, separator=',') -> []:
-    return line.split(sep=separator)
+    return line.strip().split(sep=separator)
 
 
 def __map():
@@ -21,13 +21,14 @@ def __map():
             # since its an ign review
             # get the columns title(2), platform(4), score(5)
             title, platform, score = cols[2], cols[4], cols[5]
-            _emit([title, platform, score])
+            _emit([title, score])
+            pass
 
         else:
             # since its a sales statement
             # get the columns title(1), platform(2), sales(10)
-            title, platform, sales, data_type = cols[1], cols[2], cols[10], "S"
-            _emit([title, platform, sales, data_type])
+            title, platform, sales = cols[1], cols[2], cols[10]
+            _emit([title, platform, sales])
 
 
 def __is_ign_review(cols: []):
