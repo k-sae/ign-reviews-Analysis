@@ -12,8 +12,8 @@ def _emit(elements, separator=','):
     print(output_string)
 
 
-def split(line: str, separator=',') -> []:
-    return line.strip().split(sep=separator)
+def split(line, separator=','):
+    return line.strip().split(separator)
 
 
 def __map():
@@ -33,7 +33,7 @@ def __map():
             _emit([title, platform, sales])
 
 
-def __is_ign_review(cols: []):
+def __is_ign_review(cols):
     return not cols[3].isdigit()
 
 
