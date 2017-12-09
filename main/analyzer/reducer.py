@@ -30,14 +30,14 @@ def _reduce():
     last_score = 1
     count = 0
     for line in sys.stdin:
-        # parse the input we got from mapper.py
         cols = _format_and_split(line)
         score = int(float(cols[0]))
         if _score_changed(last_score, score):
-            # make sure of no missing data
+            # get the the score sales mean
             _emit([last_score, score_sales / count])
             score_sales = 0
             count = 0
+        # accumulate the sales in order to get the mean at last
         score_sales += float(cols[1])
 
         last_score = score

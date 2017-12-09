@@ -27,7 +27,7 @@ title, Platform, Global Sales
 ### Testing mapper and reducer
 - `merger`
 ```
-    cat datasets/dataset_min.csv | python3 main/merger/mapper.py | sort -k1,1 | python3 main/merger/reducer.py 
+    datasets/merger/dataset_min.csv  | python3 main/merger/mapper.py | sort -k1,1 | python3 main/merger/reducer.py 
 ```
 
 ### steps
@@ -67,21 +67,34 @@ hadoop dfs -mkdir -p /user/$USER/ign-reviews/analyzer
 # project directory as the working directory
 hadoop dfs -put datasets/merger/titles-scores-sales.csv
 
+# change the sort method since the default one mixing the 10 and 1
 hadoop jar $HADOOP_STREAMING_HOME/hadoop-streaming-2.8.1.jar -D mapred.output.key.comparator.class=org.apache.hadoop.mapred.lib.KeyFieldBasedComparator -D  mapred.text.key.comparator.options=-n  -input /user/$USER/ign-reviews/analyzer -output /user/$USER/ign-reviews/analyzer/out -mapper $PROJECT_FOLDER/main/analyzer/mapper.py   -reducer $PROJECT_FOLDER/main/analyzer/reducer.py
 
 
 ```
 
 ## Output 
+
 ```
-this section will Contain the output
+1	0.16125
+2	0.334047619048
+3	0.330053475936
+4	0.47115942029
+5	0.610474516696
+6	0.709524390244
+7	1.24264754098
+8	1.5580347277
+9	3.00887711864
+10	10.5872727273
+
 ```
 
 
 ### observation
-```
-this section will Contain the observation
-```
+
+the relation is strongly linear dependant which lead us to the conclusion that sales and reviews are dependant
+score of 10 has a very high value with respect to the others this resulted from the presence of outlier (GTA V
+with sales of 55 million copy)
 
 ### Code Explaination
 
@@ -101,6 +114,14 @@ the reducing proccess is litte bit more tricky
 - lastly make sure there is no missing data to avoid noise
 
 ## analyzer
+
+`mapper`:
+
+the mapper this time is ignoring the title and setting the score as the key for the process
+
+`Reduccer`:
+
+- accumulate the sales for each score then get the mean of each score
 
 
 ### usefull hadoop commands
