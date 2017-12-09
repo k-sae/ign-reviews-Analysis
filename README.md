@@ -15,7 +15,7 @@ IGN is on of the largest video game reviewing site, where many video gamers cons
 columns of interest:
 
 ```
-title, score, platform
+title, score
 ```
 
 2- [Video Game Sales](https://www.kaggle.com/gregorut/videogamesales)
@@ -62,7 +62,14 @@ score   sales
 
 - this time i will use the mapper and reducer from the ``analyzer`` package
 ```
-#commands will be added on 12/12/2017
+hadoop dfs -mkdir -p /user/$USER/ign-reviews/analyzer
+
+# project directory as the working directory
+hadoop dfs -put datasets/merger/titles-scores-sales.csv
+
+hadoop jar $HADOOP_STREAMING_HOME/hadoop-streaming-2.8.1.jar -D mapred.output.key.comparator.class=org.apache.hadoop.mapred.lib.KeyFieldBasedComparator -D  mapred.text.key.comparator.options=-n  -input /user/$USER/ign-reviews/analyzer -output /user/$USER/ign-reviews/analyzer/out -mapper $PROJECT_FOLDER/main/analyzer/mapper.py   -reducer $PROJECT_FOLDER/main/analyzer/reducer.py
+
+
 ```
 
 ## Output 
@@ -74,6 +81,34 @@ this section will Contain the output
 ### observation
 ```
 this section will Contain the observation
+```
+
+### Code Explaination
+
+## merger
+
+`mapper`:
+
+the mapper check the 4th column to identify whether the line is from dataset 1 or 2 
+then print the line on std out after getting the column of interest
+
+`Reduccer`:
+
+the reducing proccess is litte bit more tricky
+- first step is to identify the line's dataset 
+- then accumelate the sales of certain title 
+- then get the average score of that title 
+- lastly make sure there is no missing data to avoid noise
+
+## analyzer
+
+
+### usefull hadoop commands
+
+`for folder deleting`
+
+```
+hadoop fs -rm -r -f $folder_name
 ```
 
 ## License
