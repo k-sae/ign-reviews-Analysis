@@ -25,9 +25,10 @@ columns of interest:
 title, Platform, Global Sales
 ```
 ### Testing mapper and reducer
+
 - `merger`
 ```
-    datasets/merger/dataset_min.csv  | python3 main/merger/mapper.py | sort -k1,1 | python3 main/merger/reducer.py 
+cat datasets/merger/dataset_min.csv  | python3 main/merger/mapper.py | sort -k1,1 | python3 main/merger/reducer.py 
 ```
 
 ### steps
@@ -42,7 +43,11 @@ hadoop dfs -mkdir -p /user/$USER/ign-reviews
 hadoop dfs -put datasets/merger/ /user/$USER/ign-reviews
 
 #use always an absolute path for mapper and reducer 
-hadoop jar $HADOOP_STREAMING_HOME/hadoop-streaming-2.8.1.jar -input /user/$USER/ign-reviews/merger -output /user/$USER/ign-reviews/merger/out -mapper $PROJECT_FOLDER/main/merger/mapper.py   -reducer $PROJECT_FOLDER/main/merger/reducer.py
+hadoop jar $HADOOP_STREAMING_HOME/hadoop-streaming-2.8.1.jar\
+-input /user/$USER/ign-reviews/merger\
+-output /user/$USER/ign-reviews/merger/out\
+-mapper $PROJECT_FOLDER/main/merger/mapper.py\
+-reducer $PROJECT_FOLDER/main/merger/reducer.py
 
 
 ```
@@ -68,7 +73,13 @@ hadoop dfs -mkdir -p /user/$USER/ign-reviews/analyzer
 hadoop dfs -put datasets/merger/titles-scores-sales.csv
 
 # change the sort method since the default one mixing the 10 and 1
-hadoop jar $HADOOP_STREAMING_HOME/hadoop-streaming-2.8.1.jar -D mapred.output.key.comparator.class=org.apache.hadoop.mapred.lib.KeyFieldBasedComparator -D  mapred.text.key.comparator.options=-n  -input /user/$USER/ign-reviews/analyzer -output /user/$USER/ign-reviews/analyzer/out -mapper $PROJECT_FOLDER/main/analyzer/mapper.py   -reducer $PROJECT_FOLDER/main/analyzer/reducer.py
+hadoop jar $HADOOP_STREAMING_HOME/hadoop-streaming-2.8.1.jar\
+-D mapred.output.key.comparator.class=org.apache.hadoop.mapred.lib.KeyFieldBasedComparator\
+-D  mapred.text.key.comparator.options=-n\
+-input /user/$USER/ign-reviews/analyzer\
+-output /user/$USER/ign-reviews/analyzer/out\
+-mapper $PROJECT_FOLDER/main/analyzer/mapper.py\
+-reducer $PROJECT_FOLDER/main/analyzer/reducer.py
 
 
 ```
