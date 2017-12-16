@@ -45,7 +45,7 @@ hadoop dfs -put datasets/merger/ /user/$USER/ign-reviews
 #use always an absolute path for mapper and reducer 
 hadoop jar $HADOOP_STREAMING_HOME/hadoop-streaming-2.8.1.jar\
 -input /user/$USER/ign-reviews/merger\
--output /user/$USER/ign-reviews/merger/out\
+-output /user/$USER/ign-reviews/merger/out/out.csv\
 -mapper $PROJECT_FOLDER/main/merger/mapper.py\
 -reducer $PROJECT_FOLDER/main/merger/reducer.py
 
@@ -76,7 +76,7 @@ hadoop dfs -put datasets/merger/titles-scores-sales.csv
 hadoop jar $HADOOP_STREAMING_HOME/hadoop-streaming-2.8.1.jar\
 -D mapred.output.key.comparator.class=org.apache.hadoop.mapred.lib.KeyFieldBasedComparator\
 -D  mapred.text.key.comparator.options=-n\
--input /user/$USER/ign-reviews/analyzer\
+-input /user/$USER/ign-reviews/merger/out/out.csv\
 -output /user/$USER/ign-reviews/analyzer/out\
 -mapper $PROJECT_FOLDER/main/analyzer/mapper.py\
 -reducer $PROJECT_FOLDER/main/analyzer/reducer.py
