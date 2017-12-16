@@ -31,7 +31,7 @@ title, Platform, Global Sales
 cat datasets/merger/dataset_min.csv  | python3 main/merger/mapper.py | sort -k1,1 | python3 main/merger/reducer.py 
 ```
 
-### steps
+### Hadoop Analysis Steps
 
 1- to merge the two dataset in order to fetch the sales of each game title and it's score 
 - use this hadoop commands to start the process on the mapper and reducer in _`merger`_ package
