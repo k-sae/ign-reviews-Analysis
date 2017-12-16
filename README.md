@@ -33,7 +33,7 @@ cat datasets/merger/dataset_min.csv  | python3 main/merger/mapper.py | sort -k1,
 
 ### Hadoop Analysis Steps
 
-1- to merge the two dataset in order to fetch the sales of each game title and it's score 
+1- merge the two dataset in order to fetch the sales of each game title and it's score 
 - use this hadoop commands to start the process on the mapper and reducer in _`merger`_ package
 
 ```
