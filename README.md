@@ -103,8 +103,8 @@ hadoop jar $HADOOP_STREAMING_HOME/hadoop-streaming-2.8.1.jar\
 
 ### observation
 
-the relation is strongly linear dependant which lead us to the conclusion that sales and reviews are dependant
-score of 10 has a very high value with respect to the others this resulted from the presence of outlier (GTA V
+- the relation is strongly linear dependant which lead us to the conclusion that sales and reviews are strongly dependant
+- score of 10 has a very high value with respect to the others this resulted from the presence of outlier (GTA V
 with sales of 55 million copy)
 
 ### Code Explaination
