@@ -7,7 +7,7 @@ in the last 20 years
 
 [![N|Solid](https://superrepo.org/static/images/icons/original/xplugin.video.ign_com.png.pagespeed.ic.mp10cLVn3C.png)](http://me.ign.com/en/)
 
-IGN is on of the largest video game reviewing site, where many video gamers consider visiting it before purchasing any game
+IGN is one of the largest video game reviewing site, where many video gamers consider visiting it before purchasing any game
 
 ### Datasets 
 1- [20 Years Of Games Analysis](https://www.kaggle.com/ash316/20-years-of-games-analysis)
